@@ -1,0 +1,52 @@
+type=raw events 1
+count= 1
+speed=1.0
+start data >>
+
+## check-2-mail-2-min.txt
+
+# launch gmail
+RunCmd(am start -n com.google.android.gm/.ConversationListActivityGmail --activity-single-top)
+captureUserWait ( 4500 )
+
+# 1st check
+compareScreenshot(2014-10-14_10-34-08.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchPointer( 2056200782000,2056200782000, 0, 743.311768, 328.828735,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 7 )
+captureDispatchPointer( 2056200782000,2056208403000, 2, 743.311768, 328.828735,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 101 )
+captureDispatchPointer( 2056200782000,2056309962000, 1, 743.311768, 328.828735,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+
+captureUserWait ( 8000 )
+
+# back to mailbox
+compareScreenshot(2014-10-14_10-34-17.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchKey( 0, 0, 0, 4, 0,0,0,0)
+captureUserWait ( 129 )
+captureDispatchKey( 0, 0, 1, 4, 0,0,0,0)
+captureUserWait ( 3627 )
+
+# 2nd check
+captureDispatchPointer( 3874116094000,3874116094000, 0, 536.503235, 558.708984,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 72 )
+captureDispatchPointer( 3874116094000,3874188946000, 2, 536.503235, 558.708984,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 9 )
+captureDispatchPointer( 3874116094000,3874198158000, 2, 536.503235, 558.708984,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 8 )
+captureDispatchPointer( 3874116094000,3874206347000, 1, 536.503235, 558.708984,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+
+captureUserWait ( 8134 )
+
+# back to mailbox
+compareScreenshot(2014-10-14_10-34-17.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchKey( 0, 0, 0, 4, 0,0,0,0)
+captureUserWait ( 129 )
+captureDispatchKey( 0, 0, 1, 4, 0,0,0,0)
+captureUserWait ( 3627 )
+
+# back to home sheet
+compareScreenshot(2014-10-14_10-34-19.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchKey( 0, 0, 0, 4, 0,0,0,0)
+captureUserWait ( 148 )
+captureDispatchKey( 0, 0, 1, 4, 0,0,0,0)
+captureUserWait ( 2835 )

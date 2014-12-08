@@ -1,0 +1,33 @@
+type=raw events 1
+count= 1
+speed=1.0
+start data >>
+
+## 2-turn-wifi-on.txt
+
+# launch settings
+RunCmd(am start -n com.android.settings/.Settings --activity-single-top)
+
+#captureUserWait ( 1000 )
+
+# turn wifi on
+
+captureDispatchPointer( 4411431225000,4411431225000, 0, 862.201660, 405.788635,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 8 )
+captureDispatchPointer( 4411431225000,4411439752000, 2, 862.201660, 405.788635,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 9 )
+captureDispatchPointer( 4411431225000,4411449123000, 2, 862.201660, 405.788635,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 9 )
+captureDispatchPointer( 4411431225000,4411458196000, 2, 862.201660, 405.788635,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 9 )
+captureDispatchPointer( 4411431225000,4411467368000, 2, 862.201660, 405.788635,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 26 )
+captureDispatchPointer( 4411431225000,4411493950000, 1, 862.201660, 405.788635,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 1000 )
+
+# back to home
+
+captureDispatchKey( 0, 0, 0, 3, 0,0,0,0)
+captureUserWait ( 138 )
+captureDispatchKey( 0, 0, 1, 3, 0,0,0,0)
+captureUserWait ( 2236 )

@@ -1,0 +1,81 @@
+type=raw events 1
+count= 1
+speed=1.0
+start data >>
+
+## watch-offline-movie-2-min.txt
+
+RunCmd(am start -n org.videolan.vlc.betav7neon/.gui.MainActivity --activity-single-top)
+captureUserWait ( 4500 )
+
+compareScreenshot(2014-10-13_02-55-33.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchPointer( 2055067205000,2055067205000, 0, 618.427368, 362.811035,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 7 )
+captureDispatchPointer( 2055067205000,2055075104000, 2, 618.427368, 362.811035,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 8 )
+captureDispatchPointer( 2055067205000,2055084048000, 2, 618.427368, 362.811035,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 55 )
+captureDispatchPointer( 2055067205000,2055139748000, 2, 619.426453, 363.810516,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 46 )
+captureDispatchPointer( 2055067205000,2055186121000, 2, 619.426453, 364.809998,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 37 )
+captureDispatchPointer( 2055067205000,2055223375000, 2, 620.425537, 364.809998,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 83 )
+captureDispatchPointer( 2055067205000,2055306962000, 2, 620.425537, 365.809479,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 335 )
+captureDispatchPointer( 2055067205000,2055642137000, 2, 620.425537, 366.808929,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 603 )
+captureDispatchPointer( 2055067205000,2056245527000, 2, 620.425537, 366.808929,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 7 )
+captureDispatchPointer( 2055067205000,2056253347000, 1, 620.425537, 366.808929,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 691 )
+captureDispatchPointer( 2056945042000,2056945042000, 0, 541.498596, 778.594482,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 138 )
+captureDispatchPointer( 2056945042000,2057083180000, 1, 541.498596, 778.594482,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+
+# watch 
+captureUserWait ( 10335 )
+captureUserWait ( 83335 )
+
+# touch screen to show the control bar
+compareScreenshot(2014-10-13_02-55-45.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchPointer( 2067418394000,2067418394000, 0, 567.474548, 950.504944,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 8 )
+captureDispatchPointer( 2067418394000,2067426891000, 2, 567.474548, 950.504944,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 55 )
+captureDispatchPointer( 2067418394000,2067482553000, 2, 567.474548, 950.504944,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 9 )
+captureDispatchPointer( 2067418394000,2067491871000, 2, 567.474548, 950.504944,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 17 )
+captureDispatchPointer( 2067418394000,2067509442000, 1, 567.474548, 950.504944,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 616 )
+
+# stop
+captureDispatchPointer( 2068126067000,2068126067000, 0, 556.484741, 960.499695,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 18 )
+captureDispatchPointer( 2068126067000,2068144780000, 2, 556.484741, 960.499695,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 65 )
+captureDispatchPointer( 2068126067000,2068209986000, 2, 556.484741, 960.499695,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 18 )
+captureDispatchPointer( 2068126067000,2068228174000, 2, 556.484741, 960.499695,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 9 )
+captureDispatchPointer( 2068126067000,2068237342000, 2, 556.484741, 960.499695,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 8 )
+captureDispatchPointer( 2068126067000,2068245509000, 1, 556.484741, 960.499695,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 1423 )
+
+# back to playlist
+compareScreenshot(2014-10-13_02-55-47.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchKey( 0, 0, 0, 4, 0,0,0,0)
+captureUserWait ( 147 )
+captureDispatchKey( 0, 0, 1, 4, 0,0,0,0)
+captureUserWait ( 3328 )
+
+# back to home sheet
+compareScreenshot(2014-10-13_02-55-51.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchKey( 0, 0, 0, 4, 0,0,0,0)
+captureUserWait ( 148 )
+captureDispatchKey( 0, 0, 1, 4, 0,0,0,0)
+captureUserWait ( 2376 )
+compareScreenshot(2014-10-13_02-55-53.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureUserWait ( 1500 )

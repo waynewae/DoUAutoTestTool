@@ -1,0 +1,174 @@
+type=raw events 1
+count= 1
+speed=1.0
+start data >>
+
+## play-store-1-min.txt
+RunCmd(am start -n com.android.vending/.AssetBrowserActivity --activity-single-top)
+captureUserWait ( 4500 )
+
+# press search bar
+compareScreenshot(2014-10-13_01-57-33.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchPointer( 7338989248000,7338989248000, 0, 980.092529, 170.910980,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 16 )
+captureDispatchPointer( 7338989248000,7339005876000, 2, 980.092529, 169.911499,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 55 )
+captureDispatchPointer( 7338989248000,7339061614000, 2, 980.092529, 169.911499,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 8 )
+captureDispatchPointer( 7338989248000,7339069875000, 1, 980.092529, 169.911499,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 1374 )
+
+# enter keyword
+compareScreenshot(2014-10-13_01-57-34.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchPointer( 7340444148000,7340444148000, 0, 1014.061035, 1351.296143,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 51 )
+captureDispatchPointer( 7340444148000,7340495711000, 2, 1015.060120, 1351.296143,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 9 )
+captureDispatchPointer( 7340444148000,7340505014000, 2, 1016.059204, 1351.296143,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 9 )
+captureDispatchPointer( 7340444148000,7340514286000, 2, 1017.058289, 1351.296143,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 17 )
+captureDispatchPointer( 7340444148000,7340531789000, 1, 1017.058289, 1351.296143,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 290 )
+captureDispatchPointer( 7340821852000,7340821852000, 0, 962.109192, 1513.211792,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 17 )
+captureDispatchPointer( 7340821852000,7340839791000, 2, 962.109192, 1513.211792,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 18 )
+captureDispatchPointer( 7340821852000,7340858316000, 2, 962.109192, 1513.211792,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 18 )
+captureDispatchPointer( 7340821852000,7340876871000, 2, 962.109192, 1513.211792,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 8 )
+captureDispatchPointer( 7340821852000,7340885339000, 1, 962.109192, 1513.211792,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 717 )
+captureDispatchPointer( 7341603034000,7341603034000, 0, 124.884369, 1508.214478,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 72 )
+captureDispatchPointer( 7341603034000,7341675695000, 1, 124.884369, 1508.214478,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 341 )
+captureDispatchPointer( 7342017595000,7342017595000, 0, 599.444946, 1327.308716,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 8 )
+captureDispatchPointer( 7342017595000,7342026308000, 2, 599.444946, 1327.308716,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 27 )
+captureDispatchPointer( 7342017595000,7342054174000, 2, 599.444946, 1327.308716,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 8 )
+captureDispatchPointer( 7342017595000,7342062617000, 1, 599.444946, 1327.308716,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 351 )
+captureDispatchPointer( 7342414092000,7342414092000, 0, 272.747467, 1345.299316,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 45 )
+captureDispatchPointer( 7342414092000,7342459800000, 2, 272.747467, 1344.299805,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 46 )
+captureDispatchPointer( 7342414092000,7342506610000, 2, 272.747467, 1344.299805,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 7 )
+captureDispatchPointer( 7342414092000,7342514568000, 1, 272.747467, 1344.299805,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 280 )
+captureDispatchPointer( 7342795210000,7342795210000, 0, 365.661438, 1317.313843,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 110 )
+captureDispatchPointer( 7342795210000,7342905961000, 2, 365.661438, 1317.313843,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 17 )
+captureDispatchPointer( 7342795210000,7342923455000, 1, 365.661438, 1317.313843,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 3037 )
+
+# search
+compareScreenshot(2014-10-13_01-57-40.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchPointer( 7345960520000,7345960520000, 0, 1006.068481, 1824.049927,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 81 )
+captureDispatchPointer( 7345960520000,7346041995000, 1, 1006.068481, 1824.049927,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 3613 )
+
+# kick more
+compareScreenshot(2014-10-13_01-57-45.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchPointer( 7351655137000,7351655137000, 0, 940.129517, 333.826111,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 26 )
+captureDispatchPointer( 7351655137000,7351681300000, 2, 940.129517, 333.826111,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 18 )
+captureDispatchPointer( 7351655137000,7351699856000, 2, 940.129517, 333.826111,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 27 )
+captureDispatchPointer( 7351655137000,7351727734000, 2, 940.129517, 333.826111,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 18 )
+captureDispatchPointer( 7351655137000,7351746271000, 2, 940.129517, 333.826111,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 8 )
+captureDispatchPointer( 7351655137000,7351754652000, 1, 940.129517, 333.826111,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 2883 )
+
+# 1st result
+compareScreenshot(2014-10-13_01-57-49.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchPointer( 7355638364000,7355638364000, 0, 639.407959, 490.744385,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 36 )
+captureDispatchPointer( 7355638364000,7355674759000, 2, 639.407959, 490.744385,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 8 )
+captureDispatchPointer( 7355638364000,7355682864000, 1, 639.407959, 490.744385,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 4361 )
+
+# back to menu
+compareScreenshot(2014-10-13_01-57-54.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchKey( 0, 0, 0, 4, 0,0,0,0)
+captureUserWait ( 92 )
+captureDispatchKey( 0, 0, 1, 4, 0,0,0,0)
+captureUserWait ( 1637 )
+
+# 2nd result
+compareScreenshot(2014-10-13_01-57-55.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchPointer( 7361774389000,7361774389000, 0, 701.350586, 774.596558,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 71 )
+captureDispatchPointer( 7361774389000,7361845923000, 1, 701.350586, 774.596558,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 3352 )
+
+# back to menu
+compareScreenshot(2014-10-13_01-57-59.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchKey( 0, 0, 0, 4, 0,0,0,0)
+captureUserWait ( 93 )
+captureDispatchKey( 0, 0, 1, 4, 0,0,0,0)
+captureUserWait ( 1946 )
+
+# 3rd result
+compareScreenshot(2014-10-13_01-58-01.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchPointer( 7367238188000,7367238188000, 0, 643.404236, 1052.451782,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 44 )
+captureDispatchPointer( 7367238188000,7367282380000, 2, 643.404236, 1052.451782,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 17 )
+captureDispatchPointer( 7367238188000,7367299968000, 1, 643.404236, 1052.451782,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 3464 )
+
+# back to menu
+compareScreenshot(2014-10-13_01-58-04.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchKey( 0, 0, 0, 4, 0,0,0,0)
+captureUserWait ( 139 )
+captureDispatchKey( 0, 0, 1, 4, 0,0,0,0)
+captureUserWait ( 1764 )
+
+# 4th result
+compareScreenshot(2014-10-13_01-58-06.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchPointer( 7372667523000,7372667523000, 0, 686.364502, 1301.322144,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 63 )
+captureDispatchPointer( 7372667523000,7372730969000, 2, 686.364502, 1301.322144,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 8 )
+captureDispatchPointer( 7372667523000,7372739151000, 1, 686.364502, 1301.322144,0.20784314,0.06666667,0,0.0,0.0,65539,0, 0)
+captureUserWait ( 3626 )
+
+# back to menu
+compareScreenshot(2014-10-13_01-58-10.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchKey( 0, 0, 0, 4, 0,0,0,0)
+captureUserWait ( 138 )
+captureDispatchKey( 0, 0, 1, 4, 0,0,0,0)
+captureUserWait ( 2123 )
+
+
+compareScreenshot(2014-10-13_01-58-12.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchKey( 0, 0, 0, 4, 0,0,0,0)
+captureUserWait ( 101 )
+captureDispatchKey( 0, 0, 1, 4, 0,0,0,0)
+captureUserWait ( 2397 )
+
+compareScreenshot(2014-10-13_01-58-15.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchKey( 0, 0, 0, 4, 0,0,0,0)
+captureUserWait ( 119 )
+captureDispatchKey( 0, 0, 1, 4, 0,0,0,0)
+captureUserWait ( 2737 )
+
+# back to home sheet
+compareScreenshot(2014-10-13_01-58-18.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureDispatchKey( 0, 0, 0, 3, 0,0,0,0)
+captureUserWait ( 147 )
+captureDispatchKey( 0, 0, 1, 3, 0,0,0,0)
+captureUserWait ( 3699 )
+compareScreenshot(2014-10-13_01-58-21.jpg, 0, 0, 1080, 1920, 0, 1.0, 10)
+captureUserWait ( 1500 )

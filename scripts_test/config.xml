@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoTest>
+		<Prefs>
+        <LogReport>
+            <LogPathName>/sdcard/AutoTesting/.report/serial_test_Report.txt</LogPathName>
+        </LogReport>
+    </Prefs>
+    <LoopCount>1</LoopCount>
+	<TestCase>
+        <check>true</check>
+        <name>slide-home-1-min.txt</name>
+        <loop>5</loop>     
+	</TestCase>
+</AutoTest>
