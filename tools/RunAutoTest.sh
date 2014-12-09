@@ -1,74 +1,106 @@
-# 2014/11/10 Wayne
+#!/bin/bash
+# Syntax : RunAutoTest.sh $DeviceInfo $Ip $ScriptPath 
 DeviceInfo=$1
-ip=$2
+Ip=$2
 ScriptPath=$3
-charge_full=/sys/class/power_supply/battery/charge_full
-charge_now=/sys/class/power_supply/battery/charge_now
-capacity=/sys/class/power_supply/battery/capacity
-today=$(date +"%Y%m%d")
-#SleepTime=1308m
-SleepTime=6m
+ChargeFull=/sys/class/power_supply/battery/charge_full
+ChargeNow=/sys/class/power_supply/battery/charge_now
+Capacity=/sys/class/power_supply/battery/capacity
+Today=$(date +"%Y%m%d")
+SleepTime=1308m
+#SleepTime=6m
 
+function CheckBattery(){
+	until [ "$(adb -s $DeviceInfo shell cat $Capacity)" -eq "100" ]; do
+		echo $(date +"%T")
+		echo Capacity: $(adb -s $DeviceInfo shell cat $Capacity) 
+		echo " "
+		sleep 60
+	done
+}
+
+function PushFiles(){
+	echo "Push music"
+	adb -s $DeviceInfo push tools/files/XJ0402.mp3 sdcard/Music/
+	echo "Push movie"
+	adb -s $DeviceInfo push tools/files/How.to.Train.Your.Dragon.2.2014.1080p.WEB-DL.AAC2.0.H264-RARBG.mkv sdcard/Movies/
+	echo "Push Complete"
+}
+
+function CleanLogScript(){
+	echo "Clean Power log"
+	adb -s $DeviceInfo shell rm -r data/data/com.fihtdc.PowerMonitor/files
+	adb -s $DeviceInfo shell rm -r data/data/com.fihtdc.PowerMonitor/pmix
+	echo "Clean complete"
+	echo "Clean Scripts and AtoTest log"
+	adb -s $DeviceInfo shell rm -r sdcard/AutoTesting/*
+	echo "Clean complete"
+}
+
+function PushDoUScript(){
+	echo "Start pushing new DoU scripts"
+	adb -s $DeviceInfo push ${ScriptPath}. /sdcard/AutoTesting
+	echo "Push completely"
+}
+
+function ReadyToRun(){
+	echo --------------------------------------------------------------------
+	echo $(date +"%Y/%m/%d %T")
+	echo Capacity: $(adb -s $DeviceInfo shell cat $Capacity)
+	echo Charge full: $(adb -s $DeviceInfo shell cat $ChargeFull)
+	echo Charge now: $(adb -s $DeviceInfo shell cat $ChargeNow)
+	echo "Please press ENTER to launch AutoTest."
+	echo --------------------------------------------------------------------
+	read answer
+}
+
+function SaveBatStart(){
+	echo $(date +"%Y/%m/%d %T")
+	echo $(date +"%Y/%m/%d %T") > ${Today}_battery_start.txt
+	echo Capacity: $(adb -s $DeviceInfo shell cat $Capacity)
+	echo Capacity,$(adb -s $DeviceInfo shell cat $Capacity) >> ${Today}_battery_start.txt
+	echo Charge full: $(adb -s $DeviceInfo shell cat $ChargeFull)
+	echo Charge full,$(adb -s $DeviceInfo shell cat $ChargeFull) >> ${Today}_battery_start.txt
+	echo Charge now: $(adb -s $DeviceInfo shell cat $ChargeNow)
+	echo Charge now,$(adb -s $DeviceInfo shell cat $ChargeNow) >> ${Today}_battery_start.txt
+}
+
+function RunTest(){
+	adb -s $DeviceInfo shell am start -a com.fihtdc.autotesting.autoaction -n com.fihtdc.autotesting/.AutoTestingMain -e path /sdcard/AutoTesting
+	echo --------------------------------------------------------------------
+	echo "NOTICE : Please plug out USB"
+	echo --------------------------------------------------------------------
+	echo "Pull_Logs.sh will be launched after $SleepTime"
+	echo --------------------------------------------------------------------
+}
+
+###############################################################################################################
 # check charge if equal 100%
-#until [ "$(adb -s $DeviceInfo shell cat $capacity)" -eq "100" ]; do
-#	echo $(date +"%T")
-#       echo Capacity: $(adb -s $DeviceInfo shell cat $capacity) 
-#        echo " "
-#	sleep 60
-#done
+CheckBattery
 
 # push movie and music
-echo "Push music"
-adb -s $DeviceInfo push tools/files/XJ0402.mp3 sdcard/Music/
-echo "Push movie"
-adb -s $DeviceInfo push tools/files/How.to.Train.Your.Dragon.2.2014.1080p.WEB-DL.AAC2.0.H264-RARBG.mkv sdcard/Movies/
-echo "Push Complete"
+PushFiles
 
-# clean old logs of AutoTest & Power Monitor
-echo "Clean logs"
-adb -s $DeviceInfo shell rm -r data/data/com.fihtdc.PowerMonitor/files
-adb -s $DeviceInfo shell rm -r data/data/com.fihtdc.PowerMonitor/pmix
-adb -s $DeviceInfo shell rm -r sdcard/AutoTesting/*
-echo "Clean completely"
+# clean old logs of AutoTest & Power Monitor & Script of WifiConfig
+CleanLogScript
 
 # push scripts
-echo "Start pushing new AutoTest scripts"
-adb -s $DeviceInfo push ${ScriptPath}. /sdcard/AutoTesting
-echo "Push completely"
+PushDoUScript
 
 # battery status at preparation state
-echo --------------------------------------------------------------------
-echo $(date +"%Y/%m/%d %T")
-echo Capacity: $(adb -s $DeviceInfo shell cat $capacity)
-echo Charge full: $(adb -s $DeviceInfo shell cat $charge_full)
-echo Charge now: $(adb -s $DeviceInfo shell cat $charge_now)
-echo "Please UNLOCK SCREEN and press ENTER to launch AutoTest."
-echo --------------------------------------------------------------------
-read answer
+ReadyToRun
 
 # Save starting battery status
-echo $(date +"%Y/%m/%d %T")
-echo $(date +"%Y/%m/%d %T") > ${today}_battery_start.txt
-echo Capacity: $(adb -s $DeviceInfo shell cat $capacity)
-echo Capacity,$(adb -s $DeviceInfo shell cat $capacity) >> ${today}_battery_start.txt
-echo Charge full: $(adb -s $DeviceInfo shell cat $charge_full)
-echo Charge full,$(adb -s $DeviceInfo shell cat $charge_full) >> ${today}_battery_start.txt
-echo Charge now: $(adb -s $DeviceInfo shell cat $charge_now)
-echo Charge now,$(adb -s $DeviceInfo shell cat $charge_now) >> ${today}_battery_start.txt
+SaveBatStart
 
 # launch AutoTest
-adb -s $DeviceInfo shell am start -a com.fihtdc.autotesting.autoaction -n com.fihtdc.autotesting/.AutoTestingMain -e path /sdcard/AutoTesting
-echo --------------------------------------------------------------------
-echo "NOTICE : Please plug out USB"
-echo --------------------------------------------------------------------
-echo "Pull_Logs.sh will be launched after $SleepTime"
-echo --------------------------------------------------------------------
+RunTest
 
 # suspend
 sleep $SleepTime
 
 # pull logs
-tools/Pull_Logs.sh $ip 
+tools/Pull_Logs.sh $Ip
 
 # send mail
 tools/HtmlMail.sh $DeviceInfo

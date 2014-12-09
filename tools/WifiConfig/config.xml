@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoTest>
+	<Prefs>
+	<LogReport>
+            <LogPathName>/sdcard/AutoTesting/.report/pre-config.txt</LogPathName>
+        </LogReport>
+	</Prefs>
+	<LoopCount>1</LoopCount>
+	<TestCase>
+        	<check>true</check>
+        	<name>disable-enable-usb-debugging.txt</name>
+        	<loop>1</loop>     
+	</TestCase>
+</AutoTest>
+
