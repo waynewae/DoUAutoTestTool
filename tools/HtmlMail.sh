@@ -36,11 +36,11 @@ function GenerateHtmlReport(){
 function UploadWebServer(){
 	# compose Power log and move to web server
 	zip -r ${Today}_PowerLog ${Today}_logs/${Today}_PowerLog/*
-	mv ${Today}_PowerLog.zip ~/Desktop/HostE/xampp/htdocs/PowerLogs/.
+	mv ${Today}_PowerLog.zip /var/www/html/PowerLogs/.
 
 	# compose log folder and move to web server
 	zip -r ${Today}_logs ${Today}_logs/*
-	mv ${Today}_logs.zip ~/Desktop/HostE/xampp/htdocs/DoULogs/.
+	mv ${Today}_logs.zip ~/var/www/html/DoULogs/.
 }
 
 function SendMail(){
