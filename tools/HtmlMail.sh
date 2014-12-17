@@ -56,19 +56,14 @@ function SendMail(){
 #############################################################################################################
 # check if abnormal file exist
 CheckAbnormal
-
 # generate txt report file
 GenerateTxtReport
-
 # covert txt to html
 GenerateHtmlReport
-
 # move log files to log folder
 mv DoU_AutoTest_report.html ${Today}_logs/.
 mv DoU_AutoTest_report.txt ${Today}_logs/.
-
 # Upload logs to web server
 UploadWebServer
-
 # send mail with attachment
 SendMail

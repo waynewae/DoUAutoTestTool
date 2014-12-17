@@ -24,18 +24,16 @@ function PullBatEnd(){
 }
 
 function PullLogs(){
+	adb kill-server
+	adb devices
 	adb connect $Ip:5566
 	sleep 5
-
 	# pull AutoTest logs of scripts
 	PullAutoTestLog
-
 	# pull and merge power logs
 	PullPowerLog
-
 	# pull battery status
 	PullBatEnd
-	
 	# pull dumpsys batterystats
 	adb -s $Ip:5566 shell dumpsys batterystats > ${Today}_logs/dumpsysinfo.txt
 }
@@ -43,10 +41,7 @@ function PullLogs(){
 ###############################################################################################################
 # Create directory
 mkdir ${Today}_logs
-
 # Pull logs
 PullLogs
-PullLogs
-
 # move starting battery status to log folder
 mv *_start.txt ${Today}_logs/

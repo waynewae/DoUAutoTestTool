@@ -64,34 +64,25 @@ function WifiConnect(){
 ###############################################################################################################
 # kill adb server
 adb kill-server
-
+adb devices
 # find mlf file
 mlf_file=$(ls $ImgPath | grep mlf)
-
 # generate UpgrageSW.sh
 GenerateUpgradeSW
-
 # launch UpgrageSW.sh
 tools/./UpgradeSW.sh $DeviceInfo
-
 # launch ScsiCmdAgent
 Scsi
-
 # install AutoTest
 InstallAutoTest
-
 # launch ScsiCmdAgent
 Scsi
-
 # set adb wifi port
 SetPort
-
 # config adb wifi
 WifiConfig
-
 # connect to device through wifi
 WifiConnect
-
 # start launching AutoTest
 echo "Start RunAutoTest.sh"
 tools/./RunAutoTest.sh $DeviceInfo $Ip $ScriptPath

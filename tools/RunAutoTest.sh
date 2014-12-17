@@ -7,8 +7,8 @@ ChargeFull=/sys/class/power_supply/battery/charge_full
 ChargeNow=/sys/class/power_supply/battery/charge_now
 Capacity=/sys/class/power_supply/battery/capacity
 Today=$(date +"%Y%m%d")
-SleepTime=1308m
-#SleepTime=6m
+#SleepTime=1308m
+SleepTime=30m
 
 function CheckBattery(){
 	until [ "$(adb -s $DeviceInfo shell cat $Capacity)" -eq "100" ]; do
@@ -66,7 +66,7 @@ function SaveBatStart(){
 }
 
 function RunTest(){
-	adb -s $DeviceInfo shell am start -a com.fihtdc.autotesting.autoaction -n com.fihtdc.autotesting/.AutoTestingMain -e path /sdcard/AutoTesting
+#	adb -s $DeviceInfo shell am start -a com.fihtdc.autotesting.autoaction -n com.fihtdc.autotesting/.AutoTestingMain -e path /sdcard/AutoTesting
 	echo --------------------------------------------------------------------
 	echo "NOTICE : Please plug out USB"
 	echo --------------------------------------------------------------------
@@ -77,30 +77,21 @@ function RunTest(){
 ###############################################################################################################
 # check charge if equal 100%
 CheckBattery
-
 # push movie and music
 PushFiles
-
 # clean old logs of AutoTest & Power Monitor & Script of WifiConfig
 CleanLogScript
-
 # push scripts
 PushDoUScript
-
 # battery status at preparation state
 ReadyToRun
-
 # Save starting battery status
 SaveBatStart
-
 # launch AutoTest
 RunTest
-
 # suspend
 sleep $SleepTime
-
 # pull logs
 tools/Pull_Logs.sh $Ip
-
 # send mail
 tools/HtmlMail.sh $DeviceInfo
