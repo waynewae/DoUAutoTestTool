@@ -35,7 +35,7 @@ function PullLogs(){
 	# pull battery status
 	PullBatEnd
 	# pull dumpsys batterystats
-	adb -s $Ip:5566 shell dumpsys batterystats > ${Today}_logs/dumpsysinfo.txt
+	adb -s $Ip:5566 shell dumpsys batterystats > ${Today}_logs/dumpsysinfo_${Today}.txt
 }
 
 ###############################################################################################################

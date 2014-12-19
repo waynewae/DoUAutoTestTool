@@ -7,8 +7,8 @@ ChargeFull=/sys/class/power_supply/battery/charge_full
 ChargeNow=/sys/class/power_supply/battery/charge_now
 Capacity=/sys/class/power_supply/battery/capacity
 Today=$(date +"%Y%m%d")
-#SleepTime=1308m
-SleepTime=30m
+SleepTime=1308m
+#SleepTime=120m
 
 function CheckBattery(){
 	until [ "$(adb -s $DeviceInfo shell cat $Capacity)" -eq "100" ]; do
@@ -19,18 +19,13 @@ function CheckBattery(){
 	done
 }
 
-function PushFiles(){
-	echo "Push music"
-	adb -s $DeviceInfo push tools/files/XJ0402.mp3 sdcard/Music/
-	echo "Push movie"
-	adb -s $DeviceInfo push tools/files/How.to.Train.Your.Dragon.2.2014.1080p.WEB-DL.AAC2.0.H264-RARBG.mkv sdcard/Movies/
-	echo "Push Complete"
-}
-
 function CleanLogScript(){
 	echo "Clean Power log"
+	adb -s $DeviceInfo shell mv data/data/com.fihtdc.PowerMonitor/files/LoggingControl.xml data/data/com.fihtdc.PowerMonitor/.
 	adb -s $DeviceInfo shell rm -r data/data/com.fihtdc.PowerMonitor/files
 	adb -s $DeviceInfo shell rm -r data/data/com.fihtdc.PowerMonitor/pmix
+	adb -s $DeviceInfo shell mkdir data/data/com.fihtdc.PowerMonitor/files
+	adb -s $DeviceInfo shell mv data/data/com.fihtdc.PowerMonitor/LoggingControl.xml
 	echo "Clean complete"
 	echo "Clean Scripts and AtoTest log"
 	adb -s $DeviceInfo shell rm -r sdcard/AutoTesting/*
@@ -66,7 +61,7 @@ function SaveBatStart(){
 }
 
 function RunTest(){
-#	adb -s $DeviceInfo shell am start -a com.fihtdc.autotesting.autoaction -n com.fihtdc.autotesting/.AutoTestingMain -e path /sdcard/AutoTesting
+	adb -s $DeviceInfo shell am start -a com.fihtdc.autotesting.autoaction -n com.fihtdc.autotesting/.AutoTestingMain -e path /sdcard/AutoTesting
 	echo --------------------------------------------------------------------
 	echo "NOTICE : Please plug out USB"
 	echo --------------------------------------------------------------------
@@ -74,11 +69,18 @@ function RunTest(){
 	echo --------------------------------------------------------------------
 }
 
+function CheckArg(){
+	echo "Arguments of RunAutoTest.sh"
+	echo $DeviceInfo
+	echo $Ip
+	echo $ScriptPath
+}
+
 ###############################################################################################################
+# check argument of RunAutoTest.sh
+CheckArg
 # check charge if equal 100%
-CheckBattery
-# push movie and music
-PushFiles
+#CheckBattery
 # clean old logs of AutoTest & Power Monitor & Script of WifiConfig
 CleanLogScript
 # push scripts

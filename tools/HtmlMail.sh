@@ -8,8 +8,18 @@ BatteryStartFile=$(ls ${Today}_logs | grep start)
 BatteryStart=${Today}_logs/$BatteryStartFile
 BatteryEnd=${Today}_logs/${Today}_battery_end.txt
 BatteryLevelFile=$(ls ${Today}_logs/${Today}_PowerLog | grep PowerCalculator)
-BatteryLevel=${Today}_logs/${Today}_PowerLog/$BatteryFevelFile
+BatteryLevel=${Today}_logs/${Today}_PowerLog/$BatteryLevelFile
 DeviceInfo=$1
+
+function CheckArg(){
+	echo $Today
+	echo $LogXls
+	echo $LogTxt
+	echo $BatteryStart
+	echo $BatteryEnd
+	echo $BatteryLevel
+	echo $DeviceInfo
+}
 
 function CheckAbnormal(){
 	AbnormalCount=$(ls -l ${Today}_logs/${Today}_PowerLog/ | grep abnormal | wc -l)
@@ -21,9 +31,9 @@ function CheckAbnormal(){
 
 function GenerateTxtReport(){
 	if [ $AbnormalCount != 0 ] ; then
-		tools/./LogGenerator $Device $LogXls $LogTxt $BatteryStart $BatteryEnd $BatteryLevel $Abnormal
+		tools/./LogGenerator $DeviceInfo $LogXls $LogTxt $BatteryStart $BatteryEnd $BatteryLevel $Abnormal
 	else
-		tools/./LogGenerator $Device $LogXls $LogTxt $BatteryStart $BatteryEnd $BatteryLevel
+		tools/./LogGenerator $DeviceInfo $LogXls $LogTxt $BatteryStart $BatteryEnd $BatteryLevel
 	fi
 }
 
@@ -40,7 +50,7 @@ function UploadWebServer(){
 
 	# compose log folder and move to web server
 	zip -r ${Today}_logs ${Today}_logs/*
-	mv ${Today}_logs.zip ~/var/www/html/DoULogs/.
+	mv ${Today}_logs.zip /var/www/html/DoULogs/.
 }
 
 function SendMail(){
@@ -54,6 +64,8 @@ function SendMail(){
 }
 
 #############################################################################################################
+# Check arguments
+CheckArg
 # check if abnormal file exist
 CheckAbnormal
 # generate txt report file

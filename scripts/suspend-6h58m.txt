@@ -1,9 +1,0 @@
-type=raw events 1
-count= 1
-speed=1.0
-start data >>
-
-## suspend-6h58m.txt
-
-## suspend 6h58min 
-fihSusResDevice(25080)

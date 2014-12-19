@@ -39,6 +39,22 @@ function InstallAutoTest(){
 	echo "Reboot completely"
 }
 
+function InstallApk(){
+	adb -s $DeviceInfo install ../Files/Boom\ Beach.18.173.apk
+	adb -s $DeviceInfo install ../Files/CookieRun.apk
+	adb -s $DeviceInfo install ../Files/Jorte.1.7.22.apk
+	adb -s $DeviceInfo install ../Files/LINE.apk
+	adb -s $DeviceInfo install ../Files/NewsWeather.apk
+	adb -s $DeviceInfo install ../Files/Skype.apk
+	adb -s $DeviceInfo install ../Files/VLC.apk
+	adb -s $DeviceInfo install ../Files/Twitter.apk
+}
+
+function PushFiles(){
+	adb -s $DeviceInfo push ../Files/XJ0402.mp3 sdcard/Music/.
+	adb -s $DeviceInfo push ../Files/How.to.Train.Your.Dragon.2.2014.1080p.WEB-DL.AAC2.0.H264-RARBG.mkv sdcard/Movies/.
+}
+
 function SetPort(){
 	echo "set wifi port on device"
 	adb -s $DeviceInfo shell setprop service.adb.tcp.port 5566
@@ -61,6 +77,13 @@ function WifiConnect(){
 	sleep 30
 }
 
+function CheckArg(){
+	echo arguments of DoU_AutoTest.sh
+	echo $DeviceInfo
+	echo $Ip
+	echo $ScriptPath
+}
+
 ###############################################################################################################
 # kill adb server
 adb kill-server
@@ -71,10 +94,16 @@ mlf_file=$(ls $ImgPath | grep mlf)
 GenerateUpgradeSW
 # launch UpgrageSW.sh
 tools/./UpgradeSW.sh $DeviceInfo
+# install apk
+InstallApk
 # launch ScsiCmdAgent
 Scsi
+# push files
+PushFiles
 # install AutoTest
 InstallAutoTest
+# pre-config
+read answer
 # launch ScsiCmdAgent
 Scsi
 # set adb wifi port
@@ -83,6 +112,8 @@ SetPort
 WifiConfig
 # connect to device through wifi
 WifiConnect
+# check arguments passed to RunAutoTest.sh
+CheckArg
 # start launching AutoTest
 echo "Start RunAutoTest.sh"
 tools/./RunAutoTest.sh $DeviceInfo $Ip $ScriptPath
