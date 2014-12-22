@@ -40,9 +40,9 @@ function InstallAutoTest(){
 }
 
 function InstallApk(){
-	adb -s $DeviceInfo install ../Files/Boom\ Beach.18.173.apk
+	adb -s $DeviceInfo install ../Files/BoomBeach.apk
 	adb -s $DeviceInfo install ../Files/CookieRun.apk
-	adb -s $DeviceInfo install ../Files/Jorte.1.7.22.apk
+	adb -s $DeviceInfo install ../Files/Jorte.apk
 	adb -s $DeviceInfo install ../Files/LINE.apk
 	adb -s $DeviceInfo install ../Files/NewsWeather.apk
 	adb -s $DeviceInfo install ../Files/Skype.apk

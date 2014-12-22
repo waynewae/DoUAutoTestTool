@@ -20,12 +20,15 @@ function CheckBattery(){
 }
 
 function CleanLogScript(){
-	echo "Clean Power log"
+	echo "Move out xml file"
 	adb -s $DeviceInfo shell mv data/data/com.fihtdc.PowerMonitor/files/LoggingControl.xml data/data/com.fihtdc.PowerMonitor/.
+	echo "Clean Power log"
 	adb -s $DeviceInfo shell rm -r data/data/com.fihtdc.PowerMonitor/files
 	adb -s $DeviceInfo shell rm -r data/data/com.fihtdc.PowerMonitor/pmix
+	echo "Create files folder"
 	adb -s $DeviceInfo shell mkdir data/data/com.fihtdc.PowerMonitor/files
-	adb -s $DeviceInfo shell mv data/data/com.fihtdc.PowerMonitor/LoggingControl.xml
+	echo "Move xml into files"
+	adb -s $DeviceInfo shell mv data/data/com.fihtdc.PowerMonitor/LoggingControl.xml data/data/com.fihtdc.PowerMonitor/files
 	echo "Clean complete"
 	echo "Clean Scripts and AtoTest log"
 	adb -s $DeviceInfo shell rm -r sdcard/AutoTesting/*

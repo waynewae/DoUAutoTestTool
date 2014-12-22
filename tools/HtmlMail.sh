@@ -55,8 +55,8 @@ function UploadWebServer(){
 
 function SendMail(){
 	MailType="set content_type='text/html'"
-	#To="WayneWHYou@fih-foxconn.com,RexYang@fih-foxconn.com,JohnnyHHLee@fih-foxconn.com,EugeniaYYSu@fih-foxconn.com,HenryWSHsu@fih-foxconn.com,ShawnSLShih@fih-foxconn.com"
-	To="WayneWHYou@fih-foxconn.com"
+	To="WayneWHYou@fih-foxconn.com,RexYang@fih-foxconn.com,JohnnyHHLee@fih-foxconn.com,EugeniaYYSu@fih-foxconn.com,HenryWSHsu@fih-foxconn.com,ShawnSLShih@fih-foxconn.com"
+	#To="WayneWHYou@fih-foxconn.com"
 	Title="[$Today]DoU AutoTest Result"
 	Attachment="${Today}_logs.zip"
 	Body="${Today}_logs/DoU_AutoTest_report.html"
