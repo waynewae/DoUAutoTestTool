@@ -100,10 +100,11 @@ InstallApk
 Scsi
 # push files
 PushFiles
+# pre-config
+echo "Press ENTER if you finish the pre-config"
+read answer
 # install AutoTest
 InstallAutoTest
-# pre-config
-read answer
 # launch ScsiCmdAgent
 Scsi
 # set adb wifi port
